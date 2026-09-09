@@ -27,19 +27,19 @@ export default function NutriGrid({ meals }: NutriGridProps) {
       />
       <NutriCard
         label="Protein"
-        value={`${totals.calories}g`}
+        value={`${totals.protein}g`}
         goal="150g"
         color="#4ecdc4"
       />
       <NutriCard
         label="Carbs"
-        value={`${totals.calories}g`}
+        value={`${totals.carbs}g`}
         goal="250g"
         color="#ffd93d"
       />
       <NutriCard
         label="Fat"
-        value={`${totals.calories}g`}
+        value={`${totals.fat}g`}
         goal="65g"
         color="#6bcb77"
       />
