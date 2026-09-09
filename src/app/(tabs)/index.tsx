@@ -27,7 +27,7 @@ export default function HomeScreen() {
       <Text style={globalStyles.title}>Nutritrack</Text>
       <HomeHeader />
       <MacroGrid meals={meals} />
-      <RecentMeals meals={meals} />
+      <RecentMeals meals={meals} onDelete={loadMeals} />
     </ScrollView>
   );
 }
