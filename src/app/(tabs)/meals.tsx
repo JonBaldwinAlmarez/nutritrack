@@ -26,10 +26,13 @@ export default function MealsScreen() {
 
   return (
     <ScrollView style={globalStyles.container}>
-      <Text style={globalStyles.title}>All Meals</Text>
-      <TouchableOpacity onPress={handleClearAllMeals}>
-        <Text style={styles.clearButton}>Clear All</Text>
-      </TouchableOpacity>
+      <View style={globalStyles.header}>
+        <Text style={globalStyles.title}>All Meals</Text>
+        <TouchableOpacity onPress={handleClearAllMeals}>
+          <Text style={styles.clearButton}>Clear All</Text>
+        </TouchableOpacity>
+      </View>
+
       <View style={{ marginTop: 30 }}>
         {meals.length === 0 ? (
           <Text style={globalStyles.empty}> No Meals</Text>
