@@ -1,13 +1,48 @@
 import { StyleSheet, View } from "react-native";
-import MacroCard from "./NutriCard";
+import { Meal } from "../storage/meals";
+import NutriCard from "./NutriCard";
 
-export default function NutriGrid() {
+type NutriGridProps = {
+  meals: Meal[];
+};
+
+export default function NutriGrid({ meals }: NutriGridProps) {
+  const totals = meals.reduce(
+    (acc, meal) => ({
+      calories: acc.calories + meal.calories,
+      protein: acc.protein + meal.protein,
+      carbs: acc.carbs + meal.carbs,
+      fat: acc.fat + meal.fat,
+    }),
+    { calories: 0, protein: 0, carbs: 0, fat: 0 },
+  );
+
   return (
     <View style={styles.grid}>
-      <MacroCard label="Calories" value="0" goal="2,000" color="#ff6b6b" />
-      <MacroCard label="Protein" value="0g" goal="150g" color="#4ecdc4" />
-      <MacroCard label="Carbs" value="0g" goal="250g" color="#ffd93d" />
-      <MacroCard label="Fat" value="0g" goal="65g" color="#6bcb77" />
+      <NutriCard
+        label="Calories"
+        value={`${totals.calories}g`}
+        goal="2,000"
+        color="#ff6b6b"
+      />
+      <NutriCard
+        label="Protein"
+        value={`${totals.calories}g`}
+        goal="150g"
+        color="#4ecdc4"
+      />
+      <NutriCard
+        label="Carbs"
+        value={`${totals.calories}g`}
+        goal="250g"
+        color="#ffd93d"
+      />
+      <NutriCard
+        label="Fat"
+        value={`${totals.calories}g`}
+        goal="65g"
+        color="#6bcb77"
+      />
     </View>
   );
 }
